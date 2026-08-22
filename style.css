@@ -1,0 +1,24 @@
+body { background-color: #f8fafc; color: #0f172a; overflow-x: hidden; }
+
+/* Glassmorphismus für die Navigation */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Verstecken der Scrollbar aber funktional lassen */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #4A7694; border-radius: 4px; }
+
+/* Sanftes Einblenden der mobilen Navigation */
+#mobile-menu { transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out; }
+.menu-open { max-height: 400px; opacity: 1; }
+.menu-closed { max-height: 0; opacity: 0; pointer-events: none; }
+
+/* Listen-Icons Check/Cross */
+.check-icon { color: #10b981; font-weight: bold; margin-right: 8px; flex-shrink: 0; }
+.cross-icon { color: #ef4444; font-weight: bold; margin-right: 8px; opacity: 0.5; flex-shrink: 0; }
+.excluded-text { color: #94a3b8; text-decoration: line-through; opacity: 0.7; }

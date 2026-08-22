@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>MVA Autopflege | Mobile Innenraumaufbereitung & Autoreinigung in Grünwald</title>
+    
+    <meta name="description" content="Professionelle mobile Autoaufbereitung und Innenraumreinigung direkt bei Ihnen vor Ort in 82031 Grünwald, München und Umgebung. Jetzt Termin vereinbaren!">
+    
+    <meta name="keywords" content="Innenraumaufbereitung, Reinigung, Autoreinigung in der Nähe, Autoaufbereitung in der Nähe, Autopflege, Fahrzeugaufbereitung, Mobile Autoreinigung, Grünwald, München, 82031, Bayern, Deutschland, Polsterreinigung">
+    
+    <link rel="icon" href="mva.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="mva.jpeg">
+    
+    <meta property="og:title" content="MVA Autopflege | Mobile Innenraumaufbereitung in Grünwald">
+    <meta property="og:description" content="Ihre professionelle Autoreinigung in der Nähe. Wir kommen direkt zu Ihnen nach 82031 Grünwald und ganz Bayern.">
+    <meta property="og:image" content="mva.jpeg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    
+    
+    <!-- Google Fonts (Inter für einen sehr modernen, cleanen Look) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mva: {
+                            light: '#6c99bb',
+                            DEFAULT: '#4A7694',
+                            dark: '#2A485E',
+                            darkest: '#0B1120',
+                            card: '#1E293B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased selection:bg-mva-DEFAULT selection:text-white bg-slate-50 text-slate-900">
+
+    <header id="navbar" class="fixed w-full top-0 z-50 glass-nav transition-transform duration-300 transform">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <img src="mva.jpeg" alt="MVA Logo" class="h-12 w-12 rounded-full object-cover shadow-sm border border-slate-200 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100x100/4A7694/FFFFFF?text=MVA'">
+                    <span class="text-xl font-black tracking-tight text-slate-900">MVA AUTOPFLEGE</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Home</a>
+                    <a href="#ablauf" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Ablauf</a>
+                    <a href="#galerie" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Vorher / Nachher</a>
+                    <a href="#preise" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Preise</a>
+                    <a href="#kontakt" class="text-sm font-semibold text-mva-DEFAULT hover:text-mva-dark transition-colors">Kontakt</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-btn" class="md:hidden text-slate-600 hover:text-mva-DEFAULT focus:outline-none p-2">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="mobile-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="md:hidden glass-nav menu-closed overflow-hidden border-t border-slate-100">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col items-center">
+                <a href="#home" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">Home</a>
+                <a href="#ablauf" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">Ablauf</a>
+                <a href="#galerie" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">Vorher / Nachher</a>
+                <a href="#preise" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">Preise</a>
+                <a href="#kontakt" class="mobile-link block px-3 py-2 text-base font-bold text-mva-DEFAULT">Kontakt</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="relative h-screen min-h-[620px] flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Hintergrundbild mit geschmeidigem Verlauf -->
+        <div class="absolute inset-0 z-0 bg-slate-900">
+            <div class="w-full h-full bg-cover bg-center opacity-80" style="background-image: url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/75 to-slate-950/60"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-50"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center md:items-start md:text-left">
+            
+            <!-- Pin-Nadel Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-6 shadow-sm">
+                <svg class="w-4 h-4 text-mva-light shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span class="text-sm font-semibold text-white tracking-wide">Mobil in Grünwald & München</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4 tracking-tight">
+                <span class="block text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-200 mb-2">Professionelle</span>
+                Innenraum<wbr>aufbereitung<br>
+                <span class="block text-xl sm:text-2xl md:text-3xl font-semibold text-mva-light mt-2">direkt bei Ihnen vor Ort</span>
+            </h1>
+
+            <p class="mt-4 text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed font-normal">
+                MVA Autopflege bringt erstklassige Fahrzeugreinigung direkt zu Ihnen nach Hause. Effizient, extrem gründlich und komplett ohne Wartezeiten.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="#kontakt" class="inline-flex justify-center items-center px-8 py-4 text-base font-bold text-white bg-mva-DEFAULT hover:bg-mva-dark rounded-full transition-all shadow-lg hover:shadow-2xl hover:-translate-y-0.5">
+                    Termin vereinbaren
+                </a>
+                <a href="#preise" class="inline-flex justify-center items-center px-8 py-4 text-base font-bold text-white bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm rounded-full transition-all hover:-translate-y-0.5">
+                    Pakete ansehen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="ablauf" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-mva-DEFAULT font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">In 4 Schritten zum Neuwagen-Gefühl</h3>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">So einfach funktioniert es</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-white border border-slate-200/80 shadow-sm p-8 rounded-3xl relative hover:border-mva-DEFAULT hover:shadow-md transition-all group">
+                    <div class="w-14 h-14 bg-mva-DEFAULT/10 text-mva-DEFAULT rounded-2xl flex items-center justify-center text-2xl font-black mb-6 group-hover:bg-mva-DEFAULT group-hover:text-white transition-colors">1</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Termin vereinbaren</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Kontaktieren Sie uns einfach bequem per WhatsApp, E-Mail, Telefon oder über unser Formular.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-white border border-slate-200/80 shadow-sm p-8 rounded-3xl relative hover:border-mva-DEFAULT hover:shadow-md transition-all group">
+                    <div class="w-14 h-14 bg-mva-DEFAULT/10 text-mva-DEFAULT rounded-2xl flex items-center justify-center text-2xl font-black mb-6 group-hover:bg-mva-DEFAULT group-hover:text-white transition-colors">2</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Angebot erhalten</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Wir klären vorab (gerne per Foto) den Zustand und besprechen den Preis absolut transparent.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-white border border-slate-200/80 shadow-sm p-8 rounded-3xl relative hover:border-mva-DEFAULT hover:shadow-md transition-all group">
+                    <div class="w-14 h-14 bg-mva-DEFAULT/10 text-mva-DEFAULT rounded-2xl flex items-center justify-center text-2xl font-black mb-6 group-hover:bg-mva-DEFAULT group-hover:text-white transition-colors">3</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Wir kommen zu Ihnen</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Lehnen Sie sich zurück. Wir bringen alle Geräte, Reiniger und unser komplettes Equipment mit.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="bg-white border border-slate-200/80 shadow-sm p-8 rounded-3xl relative hover:border-mva-DEFAULT hover:shadow-md transition-all group">
+                    <div class="w-14 h-14 bg-mva-DEFAULT/10 text-mva-DEFAULT rounded-2xl flex items-center justify-center text-2xl font-black mb-6 group-hover:bg-mva-DEFAULT group-hover:text-white transition-colors">4</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Ergebnis genießen</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Begutachten Sie das fertige Ergebnis und erhalten Sie Ihr Auto im Zustand eines Neuwagens zurück.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Kundenbewertungen -->
+<section class="py-16 bg-white border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h3 class="text-mva-DEFAULT font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">Bewertungen</h3>
+        <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-8">Das sagen unsere Kunden</h2>
+        
+        <!-- HIER IST DEIN NEUER SOCIABLEKIT CODE -->
+        <div class="sk-ww-google-reviews" data-embed-id="25707400"></div>
+    </div>
+</section>
+
+
+    <section id="galerie" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-mva-DEFAULT font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">Unsere Ergebnisse</h3>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">Vorher / Nachher</h2>
+                <p class="text-slate-500 text-sm mt-2">Klicken Sie auf ein Bild, um die Vorher/Nachher-Galerie im Vollbild zu durchsuchen.</p>
+            </div>
+            
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6"></div>
+            
+            <!-- NEU: Container für den "Alle ansehen" Button -->
+            <div id="gallery-btn-container" class="mt-10 text-center hidden">
+                <button onclick="expandGallery()" class="inline-flex justify-center items-center px-8 py-4 text-base font-bold text-slate-800 bg-white hover:bg-slate-100 transition-colors border border-slate-300 shadow-sm rounded-full">
+                    Alle ansehen
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="preise" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <h3 class="text-mva-DEFAULT font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">Transparente Preise</h3>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">Unsere Pflegepakete</h2>
+                <p class="text-slate-600">In allen Paketen inklusive: Professionelles Werkzeug, Spezialreiniger, Anfahrt sowie Beratung.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch pt-6">
+                
+                <!-- Easy Paket -->
+                <div class="bg-slate-50 border border-slate-200/90 shadow-sm rounded-3xl p-8 flex flex-col h-full">
+                    <div class="text-center pb-6 border-b border-slate-200 mb-6">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Easy</h3>
+                        <div class="text-4xl font-black text-mva-DEFAULT">45 €</div>
+                        <span class="text-sm text-slate-500 block mt-2">Für Standard-Fahrzeuge</span>
+                    </div>
+                    <ul class="flex-grow space-y-3 text-sm text-slate-700 mb-8">
+                        <li class="flex items-start"><span class="check-icon">✓</span> Saugen (Böden, Sitze, Kofferraum)</li>
+                        <li class="flex items-start"><span class="check-icon">✓</span> Kunststoffpflege & Oberflächen</li>
+                        <li class="flex items-start"><span class="check-icon">✓</span> Pflege der Türdichtungen</li>
+                        <li class="flex items-start"><span class="check-icon">✓</span> Säuberung der Pedalerie</li>
+                        <li class="flex items-start excluded-text"><span class="cross-icon">✕</span> Armaturenreinigung</li>
+                        <li class="flex items-start excluded-text"><span class="cross-icon">✕</span> Tiefenreinigung Fußmatten</li>
+                        <li class="flex items-start excluded-text"><span class="cross-icon">✕</span> Displayreinigung</li>
+                        <li class="flex items-start excluded-text"><span class="cross-icon">✕</span> Geruchsneutralisierung</li>
+                        <li class="flex items-start excluded-text"><span class="cross-icon">✕</span> Tiefe Sitzreinigung</li>
+                        <li class="flex items-start excluded-text"><span class="cross-icon">✕</span> Leder- & Textilpflege</li>
+                        <li class="flex items-start excluded-text"><span class="cross-icon">✕</span> Scharniere, Lenkrad & Fenster</li>
+                    </ul>
+                    <a href="#kontakt" class="block w-full py-4 text-center rounded-xl font-bold text-slate-800 bg-white hover:bg-slate-100 transition-colors border border-slate-300 shadow-sm">Jetzt buchen</a>
+                </div>
+
+                <!-- Classic Paket -->
+                <div class="bg-slate-50 border border-slate-200/90 shadow-sm rounded-3xl p-8 flex flex-col h-full">
+                    <div class="text-center pb-6 border-b border-slate-200 mb-6">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Classic</h3>
+                        <div class="text-4xl font-black text-mva-DEFAULT">65 €</div>
+                        <span class="text-sm text-slate-500 block mt-2">Für Standard-Fahrzeuge</span>
+                    </div>
+                    <ul class="flex-grow space-y-3 text-sm text-slate-700 mb-8">
+                        <li class="flex items-start"><span class="check-icon">✓</span> Saugen (Böden, Sitze, Kofferraum)</li>
+                        <li class="flex items-start"><span class="check-icon">✓</span> Kunststoffpflege & Oberflächen</li>
+                        <li class="flex items-start"><span class="check-icon">✓</span> Pflege der Türdichtungen</li>
+                        <li class="flex items-start"><span class="check-icon">✓</span> Säuberung der Pedalerie</li>
+                        <li class="flex items-start"><span class="check-icon">✓</span> Armaturenreinigung</li>
+                        <li class="flex items-start"><span class="check-icon">✓</span> Tiefenreinigung Fußmatten</li>
+                        <li class="flex items-start"><span class="check-icon">✓</span> Displayreinigung</li>
+                        <li class="flex items-start"><span class="check-icon">✓</span> Geruchsneutralisierung</li>
+                        <li class="flex items-start excluded-text mt-4"><span class="cross-icon">✕</span> Tiefe Sitzreinigung</li>
+                        <li class="flex items-start excluded-text"><span class="cross-icon">✕</span> Leder- & Textilpflege</li>
+                        <li class="flex items-start excluded-text"><span class="cross-icon">✕</span> Scharniere, Lenkrad & Fenster</li>
+                    </ul>
+                    <a href="#kontakt" class="block w-full py-4 text-center rounded-xl font-bold text-slate-800 bg-white hover:bg-slate-100 transition-colors border border-slate-300 shadow-sm">Jetzt buchen</a>
+                </div>
+
+                <!-- Premium Paket -->
+                <div class="relative mt-6 md:mt-0 overflow-visible flex flex-col">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-20 bg-mva-dark text-white font-extrabold text-xs tracking-wider uppercase px-5 py-2 rounded-full shadow-lg border border-mva-light/30 flex items-center gap-1.5 whitespace-nowrap">
+                        <span class="text-amber-400">★</span> BESTSELLER
+                    </div>
+
+                    <div class="bg-white border-2 border-mva-DEFAULT rounded-3xl p-8 flex flex-col h-full shadow-xl relative z-10">
+                        <div class="text-center pb-6 border-b border-mva-DEFAULT/20 mb-6 mt-2">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-2">Premium</h3>
+                            <div class="text-5xl font-black text-mva-DEFAULT">95 €</div>
+                            <span class="text-sm text-slate-500 block mt-2">Das Rundum-Sorglos-Paket</span>
+                        </div>
+                        <ul class="flex-grow space-y-3 text-sm text-slate-800 mb-8 font-medium">
+                            <li class="flex items-start"><span class="check-icon">✓</span> Saugen (Böden, Sitze, Kofferraum)</li>
+                            <li class="flex items-start"><span class="check-icon">✓</span> Kunststoffpflege & Oberflächen</li>
+                            <li class="flex items-start"><span class="check-icon">✓</span> Pflege der Türdichtungen</li>
+                            <li class="flex items-start"><span class="check-icon">✓</span> Säuberung der Pedalerie</li>
+                            <li class="flex items-start"><span class="check-icon">✓</span> Armaturenreinigung</li>
+                            <li class="flex items-start"><span class="check-icon">✓</span> Tiefenreinigung Fußmatten</li>
+                            <li class="flex items-start"><span class="check-icon">✓</span> Displayreinigung</li>
+                            <li class="flex items-start"><span class="check-icon">✓</span> Geruchsneutralisierung</li>
+                            <li class="flex items-start"><span class="check-icon">✓</span> Tiefe Sitzreinigung (Extraktion)</li>
+                            <li class="flex items-start"><span class="check-icon">✓</span> Leder-, Alcantara- & Textilpflege</li>
+                            <li class="flex items-start"><span class="check-icon">✓</span> Scharniere, Lenkrad, Flecken & Fenster</li>
+                        </ul>
+                        <a href="#kontakt" class="block w-full py-4 text-center rounded-xl font-bold text-slate-800 bg-mva-DEFAULT hover:bg-mva-dark transition-all shadow-md">Jetzt buchen</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Rabatt-Ankündigung -->
+            <div class="mt-16 bg-slate-50 border border-slate-200 shadow-sm rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
+                <div class="w-14 h-14 bg-mva-DEFAULT/10 text-mva-DEFAULT rounded-2xl flex items-center justify-center text-3xl shrink-0">🏷️</div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Sonderangebot für mehrere Fahrzeuge!</h3>
+                    <p class="text-slate-600 text-sm md:text-base leading-relaxed">Sie möchten zwei oder mehr Fahrzeuge gleichzeitig reinigen lassen? Sprechen Sie uns an – wir bieten attraktive Sonderkonditionen ab dem zweiten Auto!</p>
+                </div>
+            </div>
+
+            <!-- Extras & Größenaufpreise -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <div class="bg-white border border-slate-200 shadow-sm rounded-2xl p-6">
+                    <h4 class="text-lg font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Aufpreise nach Größe</h4>
+                    <ul class="space-y-3 text-slate-700 text-sm">
+                        <li class="flex justify-between"><span>VW Bus, SUV, Kombi etc.</span> <strong class="text-mva-DEFAULT font-bold">+ 20 €</strong></li>
+                        <li class="flex justify-between"><span>Sprinter, Transporter etc.</span> <strong class="text-mva-DEFAULT font-bold">+ 40 €</strong></li>
+                    </ul>
+                </div>
+                <div class="bg-white border border-slate-200 shadow-sm rounded-2xl p-6">
+                    <h4 class="text-lg font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Spezialbehandlungen</h4>
+                    <ul class="space-y-3 text-slate-700 text-sm">
+                        <li class="flex justify-between"><span>Tierhaarentfernung</span> <strong class="text-mva-DEFAULT font-bold">+ 10 - 30 €</strong></li>
+                        <li class="flex justify-between"><span>Fensterreinigung</span> <strong class="text-mva-DEFAULT font-bold">+ 10 €</strong></li>
+                        <li class="flex justify-between"><span>Lederpflege & Schutz</span> <strong class="text-mva-DEFAULT font-bold">+ 25 €</strong></li>
+                        <li class="flex justify-between"><span>Kindersitzreinigung</span> <strong class="text-mva-DEFAULT font-bold">+ 5 €</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-slate-50 border-l-4 border-mva-DEFAULT p-6 rounded-r-2xl shadow-sm border border-slate-200 border-l-mva-DEFAULT">
+                <h4 class="text-slate-900 font-bold mb-2 flex items-center gap-3 text-base sm:text-lg">
+                    <span class="w-8 h-8 bg-mva-DEFAULT text-white rounded-full flex items-center justify-center font-black text-lg shrink-0 shadow-sm">!</span>
+                    Unser Transparenz-Versprechen
+                </h4>
+                <p class="text-sm text-slate-600 leading-relaxed pl-11">Bitte beachten Sie, dass es bei <strong>extremer Verschmutzung</strong> zu einem geringen Aufpreis kommen kann. Dieser wird im Vorhinein transparent mit Ihnen abgesprochen. Solche Fälle treten nur sehr selten auf. Wir legen großen Wert darauf, dass Sie immer vorher genau wissen, was es kostet.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-mva-DEFAULT font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">Jetzt Termin sichern</h3>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">Kontakt & Anfrage</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                
+                <!-- Kontaktinfos -->
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Lust auf einen sauberen Innenraum?</h3>
+                    <p class="text-slate-600 mb-8 leading-relaxed">Schreiben Sie uns eine Nachricht, rufen Sie an oder schicken Sie uns ganz unkompliziert ein Foto Ihres Autos per WhatsApp!</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <a href="tel:01736066905" class="flex items-center gap-4 p-4 rounded-2xl bg-white hover:bg-slate-100 transition-colors border border-slate-200 shadow-sm group">
+                            <div class="w-12 h-12 bg-mva-DEFAULT text-white rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">📞</div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Telefon & WhatsApp</p>
+                                <p class="text-lg font-bold text-slate-900">0173 6066905</p>
+                            </div>
+                        </a>
+                        <a href="mailto:mva.autopflege@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-white hover:bg-slate-100 transition-colors border border-slate-200 shadow-sm group">
+                            <div class="w-12 h-12 bg-mva-DEFAULT text-white rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">✉️</div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">E-Mail Adresse</p>
+                                <p class="text-base sm:text-lg font-bold text-slate-900 break-all">mva.autopflege@gmail.com</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 shadow-sm p-6 rounded-2xl mb-8">
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2"><span>💳</span> Bequeme Bezahlung vor Ort</h4>
+                        <p class="text-sm text-slate-600">Zahlen Sie unkompliziert <strong>bar, mit Karte, Paypal oder per Überweisung</strong> nach der Reinigung.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-3">Folgen Sie uns:</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.instagram.com/mva_autopflege?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="px-6 py-2.5 bg-white hover:bg-slate-100 border border-slate-200 shadow-sm rounded-full text-slate-800 text-sm font-semibold transition-colors flex items-center gap-2">
+                                📱 Instagram
+                            </a>
+                            <a href="https://www.tiktok.com/@mvaautopflege?is_from_webapp=1&sender_device=pc" target="_blank" class="px-6 py-2.5 bg-white hover:bg-slate-100 border border-slate-200 shadow-sm rounded-full text-slate-800 text-sm font-semibold transition-colors flex items-center gap-2">
+                                🎬 TikTok
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formular mit klar lesbarem Button & Select -->
+                <div class="bg-white border border-slate-200/90 p-6 sm:p-8 rounded-3xl shadow-md relative">
+                    <form action="https://api.web3forms.com/submit" method="POST" id="booking-form" class="space-y-5">
+                        <input type="hidden" name="access_key" value="d49718bb-7480-4079-bdd2-2fe2d0c49fef">
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Ihr Name *</label>
+                            <input type="text" name="name" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-mva-DEFAULT focus:ring-1 focus:ring-mva-DEFAULT transition-colors placeholder-slate-400" placeholder="z.B. Max Mustermann">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Kontakt (E-Mail oder Telefon) *</label>
+                            <input type="text" name="kontakt" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-mva-DEFAULT focus:ring-1 focus:ring-mva-DEFAULT transition-colors placeholder-slate-400" placeholder="z.B. 0173 1234567">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Wählen Sie Ihr Haupt-Paket</label>
+                            <div class="relative">
+                                <select name="paket" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-mva-DEFAULT focus:ring-1 focus:ring-mva-DEFAULT transition-colors appearance-none cursor-pointer">
+                                    <option value="" disabled selected class="text-slate-600">Bitte wählen...</option>
+                                    <option value="easy" class="text-slate-900">Easy Paket Innen (45 €)</option>
+                                    <option value="classic" class="text-slate-900">Classic Paket Innen (65 €)</option>
+                                    <option value="premium" class="text-slate-900">Premium Paket Innen (95 €) </option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-500 text-xs">▼</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Ihre Nachricht (Fahrzeugmodell, Standort, Wunschtermin)</label>
+                            <textarea name="nachricht" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-mva-DEFAULT focus:ring-1 focus:ring-mva-DEFAULT transition-colors placeholder-slate-400 resize-none" placeholder="Hallo, ich hätte gerne einen Termin in Grünwald für meinen VW Golf..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-4 bg-mva-DEFAULT hover:bg-mva-dark text-slate-800 font-bold text-base rounded-xl transition-all shadow-md hover:shadow-lg mt-4 cursor-pointer">
+                            Anfrage jetzt absenden
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal für Galerie -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex flex-col justify-between p-4 md:p-8">
+        <!-- Lightbox Header / Controls -->
+        <div class="flex justify-between items-center max-w-5xl mx-auto w-full text-white pt-2">
+            <span id="lightbox-counter" class="text-sm font-semibold text-slate-300">Bild 1 von 6</span>
+            <button onclick="closeLightbox()" class="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Lightbox Content Container -->
+        <div class="relative flex-grow flex items-center justify-center my-4 max-w-5xl mx-auto w-full">
+            <!-- Vorheriges Bild Button -->
+            <button onclick="prevLightboxImage()" class="absolute left-2 z-10 p-3 rounded-full bg-slate-900/60 hover:bg-slate-900 text-white transition-colors border border-white/10 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+
+            <!-- Großansicht Bild -->
+            <img id="lightbox-img" src="" alt="Vorher Nachher Großansicht" class="max-h-[75vh] max-w-full object-contain rounded-2xl shadow-2xl border border-white/10">
+
+            <!-- Nächstes Bild Button -->
+            <button onclick="nextLightboxImage()" class="absolute right-2 z-10 p-3 rounded-full bg-slate-900/60 hover:bg-slate-900 text-white transition-colors border border-white/10 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Lightbox Footer / Title -->
+        <div class="text-center text-slate-300 text-sm font-medium pb-2" id="lightbox-caption">
+            Fahrersitz Vorher / Nachher
+        </div>
+    </div>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-black text-white tracking-tight">MVA AUTOPFLEGE</h3>
+                    <p class="text-slate-400 text-sm mt-1">Sauber. Sorgfältig. Zuverlässig.</p>
+                </div>
+                <div class="flex gap-6 text-sm text-slate-400">
+                    <a href="#" class="hover:text-white transition-colors">Impressum</a>
+                    <a href="#" class="hover:text-white transition-colors">Datenschutz</a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-slate-600 text-xs">
+                &copy; 2026 MVA Autopflege. Alle Rechte vorbehalten.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Datei einbinden -->
+     <script src="script.js"></script>
+
+        <script src="https://widgets.sociablekit.com/google-reviews/widget.js" defer></script>
+
+</body>
+</html>

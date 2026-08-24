@@ -7,7 +7,7 @@
     <title>MVA Autopflege | Mobile Innenraumaufbereitung & Autoreinigung in Grünwald</title>
     
     <meta name="description" content="Professionelle mobile Autoaufbereitung und Innenraumreinigung direkt bei Ihnen vor Ort in 82031 Grünwald, München und Umgebung. Jetzt Termin vereinbaren!">
-    <meta name="keywords" content="Innenraumaufbereitung, mobile, Autoreinigung in der Nähe, Autoaufbereitung in der Nähe, Autopflege, Fahrzeugaufbereitung, Mobile Autoreinigung, Grünwald, München, 82031, Bayern, Deutschland, Polsterreinigung">
+    <meta name="keywords" content="Innenraumaufbereitung, Firmen-Angebot, Unternehmen, mobile, Autoreinigung in der Nähe, Autoaufbereitung in der Nähe, Autopflege, Fahrzeugaufbereitung, Mobile Autoreinigung, Grünwald, München, 82031, Bayern, Deutschland, Polsterreinigung">
     
     <link rel="icon" href="mvalogo.jpeg" type="image/jpeg">
     <link rel="apple-touch-icon" href="mvalogo.jpeg">
@@ -50,42 +50,53 @@
 <body class="antialiased selection:bg-mva-DEFAULT selection:text-white bg-slate-50 text-slate-900">
 
     <header id="navbar" class="fixed w-full top-0 z-50 glass-nav transition-transform duration-300 transform">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <img src="mva.jpeg" alt="MVA Logo" class="h-12 w-12 rounded-full object-cover shadow-sm border border-slate-200 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100x100/4A7694/FFFFFF?text=MVA'">
-                    <span class="text-xl font-black tracking-tight text-slate-900">MVA AUTOPFLEGE</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="mva.jpeg" alt="MVA Logo" class="h-12 w-12 rounded-full object-cover shadow-sm border border-slate-200 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100x100/4A7694/FFFFFF?text=MVA'">
+                <span class="text-xl font-black tracking-tight text-slate-900">MVA AUTOPFLEGE</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Home</a>
+                <a href="#galerie" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Vorher / Nachher</a>
+                <a href="#preise" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Preise</a>
+                <a href="#faq" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">FAQ</a>
+                <a href="#kontakt" class="text-sm font-semibold text-mva-DEFAULT hover:text-mva-dark transition-colors">Kontakt</a>
+                <!-- Button für Unternehmen (Desktop) -->
+                <a href="firmenkunden.html" class="px-5 py-2.5 rounded-full bg-mva-DEFAULT text-black font-bold text-xs uppercase tracking-wider hover:bg-mva-dark transition-all shadow-sm hover:shadow-md">
+                    Für Unternehmen
                 </a>
+            </nav>
 
-                <!-- Desktop Menu -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Home</a>
-                    <a href="#galerie" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Vorher / Nachher</a>
-                    <a href="#preise" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Preise</a>
-                    <a href="#faq" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">FAQ</a>
-                    <a href="#kontakt" class="text-sm font-semibold text-mva-DEFAULT hover:text-mva-dark transition-colors">Kontakt</a>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-btn" class="md:hidden text-slate-600 hover:text-mva-DEFAULT focus:outline-none p-2">
+            <!-- Mobile Controls (Button IMMER sichtbar + Hamburger-Icon) -->
+            <div class="flex items-center gap-3 md:hidden">
+                <a href="firmenkunden.html" class="px-3 py-1.5 rounded-full bg-mva-DEFAULT text-black font-bold text-xs tracking-wide shadow-sm">
+                    Für Unternehmen
+                </a>
+                <button id="mobile-btn" class="text-slate-600 hover:text-mva-DEFAULT focus:outline-none p-1.5">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path id="mobile-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
         </div>
+    </div>
 
-        <div id="mobile-menu" class="md:hidden glass-nav menu-closed overflow-hidden border-t border-slate-100">
-            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col items-center">
-                <a href="#home" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">Home</a>
-                <a href="#galerie" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">Vorher / Nachher</a>
-                <a href="#preise" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">Preise</a>
-                <a href="#faq" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">FAQ</a>
-                <a href="#kontakt" class="mobile-link block px-3 py-2 text-base font-bold text-mva-DEFAULT">Kontakt</a>
-            </div>
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="md:hidden glass-nav menu-closed overflow-hidden border-t border-slate-100">
+        <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col items-center">
+            <a href="#home" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">Home</a>
+            <a href="#galerie" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">Vorher / Nachher</a>
+            <a href="#preise" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">Preise</a>
+            <a href="#faq" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">FAQ</a>
+            <a href="#kontakt" class="mobile-link block px-3 py-2 text-base font-bold text-mva-DEFAULT">Kontakt</a>
+            <a href="firmenkunden.html" class="mobile-link block px-4 py-2 mt-2 text-sm font-extrabold text-black bg-mva-DEFAULT rounded-full">Für Unternehmen</a>
         </div>
-    </header>
+    </div>
+</header>
 
     <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
         <!-- Hintergrundbild: Auf Mobile bg-scroll (damit Auto sichtbar bleibt), ab Desktop bg-fixed (Parallax) -->
@@ -700,8 +711,10 @@
                     <p class="text-slate-400 text-sm mt-1">Sauber. Sorgfältig. Zuverlässig.</p>
                 </div>
                 <div class="flex gap-6 text-sm text-slate-400">
-                    <a href="#" class="hover:text-white transition-colors">Impressum</a>
-                    <a href="#" class="hover:text-white transition-colors">Datenschutz</a>
+
+                    <a href="firmenkunden.html" class="hover:text-white transition-colors">Für Firmenkunden</a>
+                    <a href="impressum.html" class="hover:text-white transition-colors">Impressum</a>
+                    <a href="datenschutz.html" class="hover:text-white transition-colors">Datenschutz</a>
                 </div>
             </div>
             <div class="mt-8 text-center text-slate-600 text-xs">

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>MVA Autopflege | Mobile Fuhrparkpflege & Fahrzeugaufbereitung für Unternehmen</title>
+    <meta name="description" content="Professionelle mobile Autoaufbereitung für Unternehmen & Firmenfuhrparks in Grünwald, München und Bayern. Schon ab 2 Fahrzeugen vor Ort. Jetzt Angebot anfordern!">
+    <meta name="keywords" content="Fuhrparkpflege, Fahrzeugaufbereitung Unternehmen, Firmenfahrzeuge reinigen, Mobile Autoreinigung Firmen, Grünwald, München, Bayern, Flottenreinigung">
+    
+    <link rel="icon" href="mvalogo.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="mvalogo.jpeg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mva: {
+                            light: '#6c99bb',
+                            DEFAULT: '#4A7694',
+                            dark: '#2A485E',
+                            darkest: '#0B1120',
+                            card: '#1E293B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #f8fafc; 
+            color: #0f172a; 
+            overflow-x: hidden; 
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #4A7694; border-radius: 4px; }
+
+        #mobile-menu { transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out; }
+        .menu-open { max-height: 400px; opacity: 1; }
+        .menu-closed { max-height: 0; opacity: 0; pointer-events: none; }
+
+        .check-icon { color: #10b981; font-weight: bold; margin-right: 8px; flex-shrink: 0; }
+        .cross-icon { color: #ef4444; font-weight: bold; margin-right: 8px; opacity: 0.5; flex-shrink: 0; }
+    </style>
+</head>
+<body class="antialiased selection:bg-mva-DEFAULT selection:text-white bg-slate-50 text-slate-900">
+
+    <!-- Header / Navibar für Firmenkunden -->
+    <header id="navbar" class="fixed w-full top-0 z-50 glass-nav transition-transform duration-300 transform">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="mva.jpeg" alt="MVA Logo" class="h-12 w-12 rounded-full object-cover shadow-sm border border-slate-200 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100x100/4A7694/FFFFFF?text=MVA'">
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black tracking-tight text-slate-900">MVA AUTOPFLEGE</span>
+                        <span class="text-xs font-bold text-mva-DEFAULT uppercase tracking-wider">Business & Fuhrpark</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#vorteile" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Vorteile</a>
+                    <a href="#tarife" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Tarife & Rabatte</a>
+                    <a href="#faq" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">FAQ</a>
+                    <a href="#anfrage" class="text-sm font-semibold text-mva-DEFAULT hover:text-mva-dark transition-colors">Anfrage</a>
+                    
+                    <!-- Button zurück zu Privatkunden -->
+                    <a href="index.html" class="px-5 py-2.5 rounded-full bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider hover:bg-slate-300 transition-all shadow-sm">
+                        Für Privatkunden
+                    </a>
+                </nav>
+
+                <!-- Mobile Controls (Button IMMER sichtbar + Hamburger-Icon) -->
+                <div class="flex items-center gap-3 md:hidden">
+                    <a href="index.html" class="px-3 py-1.5 rounded-full bg-slate-200 text-slate-800 font-bold text-xs tracking-wide shadow-sm">
+                        Privatkunden
+                    </a>
+                    <button id="mobile-btn" class="text-slate-600 hover:text-mva-DEFAULT focus:outline-none p-1.5">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="mobile-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="md:hidden glass-nav menu-closed overflow-hidden border-t border-slate-100">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col items-center">
+                <a href="#vorteile" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">Vorteile</a>
+                <a href="#tarife" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">Tarife & Rabatte</a>
+                <a href="#faq" class="mobile-link block px-3 py-2 text-base font-semibold text-slate-700">FAQ</a>
+                <a href="#anfrage" class="mobile-link block px-3 py-2 text-base font-bold text-mva-DEFAULT">Anfrage</a>
+                <a href="index.html" class="mobile-link block px-4 py-2 mt-2 text-sm font-extrabold text-slate-800 bg-slate-200 rounded-full">Für Privatkunden</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-slate-900">
+            <div class="w-full h-full bg-cover bg-center bg-scroll sm:bg-fixed opacity-75" style="background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/80 to-slate-950/65"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-50"></div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center md:items-start md:text-left">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-6 shadow-sm">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <span class="text-sm font-semibold text-white tracking-wide">Mobil vor Ort · Schon ab 2 Fahrzeugen</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4 tracking-tight">
+                <span class="block text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-200 mb-2">Mobile Fuhrparkpflege</span>
+                Saubere Fahrzeuge.<br>
+                <span class="text-mva-light">Starker Eindruck. Mehr Wert.</span>
+            </h1>
+
+            <p class="mt-4 text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mb-8 leading-relaxed font-normal">
+                Professionelle Autoaufbereitung für Firmen, die repräsentativ auftreten wollen. Wir kommen direkt zu Ihrem Betrieb nach Grünwald, München und Umgebung – ohne Ausfallzeiten für Ihr Team.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-200 text-sm mb-10 text-left">
+                <div class="flex items-center"><span class="check-icon">✓</span> Mehr Kundenvertrauen & starker Firmenauftritt</div>
+                <div class="flex items-center"><span class="check-icon">✓</span> Zeitersparnis: Mitarbeiter arbeiten ungestört weiter</div>
+                <div class="flex items-center"><span class="check-icon">✓</span> Flexibler Vor-Ort-Service bereits ab 2 Autos</div>
+                <div class="flex items-center"><span class="check-icon">✓</span> Werterhalt & Leasingrückgabe-Schutz</div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="#anfrage" class="inline-flex justify-center items-center px-8 py-4 text-base font-bold text-white bg-mva-DEFAULT hover:bg-mva-dark rounded-full transition-all shadow-lg hover:shadow-2xl hover:-translate-y-0.5">
+                    Flotten-Angebot anfordern
+                </a>
+                <a href="https://wa.me/491736066905?text=Hallo%20MVA-Team%2C%20wir%20sind%20Firmenkunde%20und%20haben%20Interesse%20an%20einer%20Flottenpflege." target="_blank" class="inline-flex justify-center items-center gap-3 px-8 py-4 text-base font-bold text-white bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm rounded-full transition-all hover:-translate-y-0.5">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    0173 6066905
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warum Fuhrparkpflege Section -->
+    <section id="vorteile" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <h3 class="text-mva-DEFAULT font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">Mehr als nur Reinigung</h3>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">Warum erfolgreiche Unternehmen ihren Fuhrpark professionell pflegen lassen</h2>
+                <p class="text-slate-600">Firmenfahrzeuge sind das erste Aushängeschild Ihres Unternehmens beim Kunden vor Ort. Ein gepflegter Fuhrpark signalisiert Zuverlässigkeit, Präzision und Professionalität.</p>
+            </div>
+
+            <!-- Problem vs Lösung Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <!-- Probleme -->
+                <div class="bg-white border border-rose-100 shadow-sm rounded-3xl p-8">
+                    <h3 class="text-xl font-bold text-rose-900 mb-6 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-sm">✕</span>
+                        Typische Probleme im Firmenalltag
+                    </h3>
+                    <ul class="space-y-4 text-slate-600 text-sm">
+                        <li class="border-b border-slate-100 pb-3">
+                            <strong class="text-slate-900 block mb-1">Ungepflegter Eindruck beim Kundentermin</strong>
+                            Staub, Flecken und verschmutzte Innenräume mindern das Vertrauen von Neukunden.
+                        </li>
+                        <li class="border-b border-slate-100 pb-3">
+                            <strong class="text-slate-900 block mb-1">Wertvolle Arbeitszeit geht verloren</strong>
+                            Wenn Mitarbeiter Fahrzeuge selbst säubern müssen, fehlt diese Zeit bei Projekten und im Kundenkontakt.
+                        </li>
+                        <li class="border-b border-slate-100 pb-3">
+                            <strong class="text-slate-900 block mb-1">Hohe Nachzahlungen bei Leasingrückgabe</strong>
+                            Vernachlässigte Innenräume und Oberflächen führen zu unnötigen Abzügen bei der Fahrzeugrückgabe.
+                        </li>
+                        <li>
+                            <strong class="text-slate-900 block mb-1">Organisatorischer Zusatzaufwand</strong>
+                            Unregelmäßige Tankstellenwäschen sorgen für Abstimmungschaos und fehlende Standards im Team.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Lösung MVA -->
+                <div class="bg-white border border-emerald-100 shadow-sm rounded-3xl p-8">
+                    <h3 class="text-xl font-bold text-emerald-900 mb-6 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-sm">✓</span>
+                        Unsere Lösung für Ihren Betrieb
+                    </h3>
+                    <ul class="space-y-4 text-slate-600 text-sm">
+                        <li class="border-b border-slate-100 pb-3">
+                            <strong class="text-slate-900 block mb-1">Perfekter Firmenauftritt guaranteed</strong>
+                            Makellos saubere Fahrzeuge hinterlassen Eindruck bei Kunden, Partnern und Konkurrenten.
+                        </li>
+                        <li class="border-b border-slate-100 pb-3">
+                            <strong class="text-slate-900 block mb-1">Null Zeitverlust für Ihre Mitarbeiter</strong>
+                            Wir kommen zu Ihrem Firmengelände. Ihr Team arbeitet ungestört weiter.
+                        </li>
+                        <li class="border-b border-slate-100 pb-3">
+                            <strong class="text-slate-900 block mb-1">Planbare Werterhaltung & Leasing-Schutz</strong>
+                            Schonende Tiefenreinigung schützt Material, Polster und Leder langfristig vor Verschleiß.
+                        </li>
+                        <li>
+                            <strong class="text-slate-900 block mb-1">Schon ab 2 Fahrzeugen flexibel</strong>
+                            Kein Mindest-Großfuhrpark nötig – auch kleinere Flotten profitieren von festen Rabatten.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ablauf Section -->
+    <section id="ablauf" class="py-24 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-mva-DEFAULT font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">Einfach & Effizient</h3>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">In 4 Schritten zu gepflegten Firmenfahrzeugen</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-slate-50 border border-slate-200 shadow-sm p-8 rounded-3xl relative">
+                    <div class="w-12 h-12 bg-slate-200 text-black rounded-2xl flex items-center justify-center text-xl font-black mb-6">1</div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">
+                        <a href="#anfrage" class="hover:text-mva-DEFAULT transition-colors hover:underline">Kontakt aufnehmen</a>
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Rufen Sie uns an, schreiben Sie per WhatsApp oder nutzen Sie unser Anfrageformular.</p>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 shadow-sm p-8 rounded-3xl relative">
+                    <div class="w-12 h-12 bg-slate-200 text-black rounded-2xl flex items-center justify-center text-xl font-black mb-6">2</div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Bedarf & Flotte klären</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Wir erfassen Fahrzeuganzahl (ab 2 Autos), Verschmutzungsgrad und Ihre Wunsch-Intervalle.</p>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 shadow-sm p-8 rounded-3xl relative">
+                    <div class="w-12 h-12 bg-slate-200 text-black rounded-2xl flex items-center justify-center text-xl font-black mb-6">3</div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Vor-Ort-Service</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Unser Team kommt komplett ausgestattet zu Ihrem Betrieb und reinigt Ihre Fahrzeuge gründlich.</p>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 shadow-sm p-8 rounded-3xl relative">
+                    <div class="w-12 h-12 bg-slate-200 text-black rounded-2xl flex items-center justify-center text-xl font-black mb-6">4</div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Rechnung & Ergebnis</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Sie erhalten saubere Fahrzeuge und eine ordnungsgemäße Monats- beziehungsweise Einzelrechnung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarife Section -->
+    <section id="tarife" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <h3 class="text-mva-DEFAULT font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">Firmenkunden-Konditionen</h3>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">MVA Flotten-Tarife für jede Unternehmensgröße</h2>
+                <p class="text-slate-600">Egal ob kleiner Handwerksbetrieb mit 2 Transportern oder großer Fuhrpark: Wir bieten Ihnen faire Rabatte und verlässliche Termine.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <!-- Tarif 1: Kleinflotte -->
+                <div class="bg-white border border-slate-200 shadow-sm rounded-3xl p-8 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-mva-DEFAULT uppercase tracking-wider block mb-2">Einsteiger & Kleingewerbe</span>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Small Fleet</h3>
+                        <p class="text-sm text-slate-500 mb-6">Für Unternehmen mit 2 bis 5 Fahrzeugen</p>
+
+                        <div class="text-3xl font-black text-slate-900 mb-6">5% Rabatt</div>
+
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-center"><span class="check-icon">✓</span> Flexibler Mobile-Service vor Ort</li>
+                            <li class="flex items-center"><span class="check-icon">✓</span> Gründliche Innen- & Außenreinigung</li>
+                            <li class="flex items-center"><span class="check-icon">✓</span> Feste Terminvereinbarung</li>
+                            <li class="flex items-center"><span class="check-icon">✓</span> Rechnungsstellung (Kleinunternehmer)</li>
+                        </ul>
+                    </div>
+                    <a href="#anfrage" class="block w-full py-4 text-center rounded-xl font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors border border-slate-300">Angebot für 2-5 Autos</a>
+                </div>
+
+                <!-- Tarif 2: Medium (Bestseller) -->
+                <div class="bg-white border border-slate-200 shadow-sm rounded-3xl p-8 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-mva-DEFAULT uppercase tracking-wider block mb-2 mt-2">Mittelständische Betriebe</span>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Business Partner</h3>
+                        <p class="text-sm text-slate-500 mb-6">Für Unternehmen mit 6 bis 15 Fahrzeugen</p>
+
+                        <div class="text-3xl font-black text-slate-900 mb-6">8% Rabatt</div>
+
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8 font-medium">
+                            <li class="flex items-center"><span class="check-icon">✓</span> Priorisierte Terminvergabe</li>
+                            <li class="flex items-center"><span class="check-icon">✓</span> Kostenfreier Vor-Ort-Anfahrts-Check</li>
+                            <li class="flex items-center"><span class="check-icon">✓</span> Leasingrückgabe-Vorkontrolle</li>
+                            <li class="flex items-center"><span class="check-icon">✓</span> Rabattierte Zusatzleistungen (Ozon, Polster)</li>
+                            <li class="flex items-center"><span class="check-icon">✓</span> Monatsrechnung mit Zahlungsziel</li>
+                        </ul>
+                    </div>
+                    <a href="#anfrage" class="block w-full py-4 text-center rounded-xl font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors border border-slate-300">Business-Angebot anfordern</a>
+                </div>
+
+                <!-- Tarif 3: Enterprise -->
+                <div class="bg-white border border-slate-200 shadow-sm rounded-3xl p-8 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-mva-DEFAULT uppercase tracking-wider block mb-2">Großfuhrpark & Logistik</span>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Fleet Premium</h3>
+                        <p class="text-sm text-slate-500 mb-6">Für Unternehmen ab 16 Fahrzeugen</p>
+
+                        <div class="text-3xl font-black text-slate-900 mb-6">11% Rabatt</div>
+
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-center"><span class="check-icon">✓</span> Fester Ansprechpartner</li>
+                            <li class="flex items-center"><span class="check-icon">✓</span> Feste Reinigungsintervalle (monatlich/quartalsweise)</li>
+                            <li class="flex items-center"><span class="check-icon">✓</span> Exklusive Service-Garantie</li>
+                            <li class="flex items-center"><span class="check-icon">✓</span> Individuelle Fuhrpark-Konditionen</li>
+                        </ul>
+                    </div>
+                    <a href="#anfrage" class="block w-full py-4 text-center rounded-xl font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors border border-slate-300">Flotten-Tarif anfragen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Bereich für Firmenkunden -->
+    <section id="faq" class="py-24 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-mva-DEFAULT font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">Häufige Fragen</h3>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">Fragen & Antworten für Unternehmen</h2>
+            </div>
+
+            <div class="space-y-4">
+                <details class="group bg-slate-50 border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden shadow-sm">
+                    <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-slate-900 font-bold">
+                        <h2 class="text-lg">Ab wie vielen Fahrzeugen bieten Sie den Firmenkunden-Service an?</h2>
+                        <span class="relative h-5 w-5 shrink-0 text-mva-DEFAULT">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" /></svg>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 mt-2">
+                        Bereits <strong>ab 2 Fahrzeugen</strong> profitieren Sie bei MVA Autopflege von unseren attraktiven Firmen-Konditionen und unserem bequemen Vor-Ort-Service.
+                    </div>
+                </details>
+
+                <details class="group bg-slate-50 border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden shadow-sm">
+                    <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-slate-900 font-bold">
+                        <h2 class="text-lg">Welche Voraussetzungen werden bei uns vor Ort benötigt?</h2>
+                        <span class="relative h-5 w-5 shrink-0 text-mva-DEFAULT">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" /></svg>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 mt-2">
+                        Wir bringen unser professionelles Equipment mit. Alles, was wir auf Ihrem Betriebsgelände benötigen, ist der Zugang zu einer normalen 230V-Steckdose sowie ausreichend Platz zum Arbeiten um die Fahrzeuge.
+                    </div>
+                </details>
+
+                <details class="group bg-slate-50 border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden shadow-sm">
+                    <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-slate-900 font-bold">
+                        <h2 class="text-lg">Können wir als Unternehmen auf Rechnung bezahlen?</h2>
+                        <span class="relative h-5 w-5 shrink-0 text-mva-DEFAULT">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" /></svg>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 mt-2">
+                        Ja, selbstverständlich. Wir schreiben generell immer Rechnungen, auch bei Privatkunden. Da wir ein Kleinunternehmen sind, weisen wir auf unseren Rechnungen jedoch gemäß Kleinunternehmerregelung keine Mehrwertsteuer aus.
+                    </div>
+                </details>
+
+                <details class="group bg-slate-50 border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden shadow-sm">
+                    <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-slate-900 font-bold">
+                        <h2 class="text-lg">Bieten wir Unterstützung vor Leasingrückgaben an?</h2>
+                        <span class="relative h-5 w-5 shrink-0 text-mva-DEFAULT">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" /></svg>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 mt-2">
+                        Ja, eine gezielte Aufbereitung vor der Leasingrückgabe lohnt sich finanztechnisch extrem. Wir beseitigen Flecken, Gerüche und Gebrauchsspuren gründlich, um hohe Nachforderungen der Leasinggesellschaften zu vermeiden.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formular Section -->
+    <section id="anfrage" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-mva-DEFAULT font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">Unverbindliche Beratung</h3>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">Jetzt Flotten-Angebot anfordern</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                <!-- Kontaktdaten -->
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">MVA Autopflege für Unternehmen</h3>
+                    <p class="text-slate-600 mb-8 leading-relaxed">Senden Sie uns einfach eine kurze Anfrage. Wir melden uns in der Regel innerhalb weniger Stunden mit einem maßgeschneiderten Angebot für Ihren Fuhrpark zurück.</p>
+
+                    <div class="space-y-4 mb-8">
+                        <a href="tel:01736066905" class="flex items-center gap-4 p-4 rounded-2xl bg-white hover:bg-slate-100 transition-colors border border-slate-200 shadow-sm">
+                            <div class="w-12 h-12 bg-mva-DEFAULT text-white rounded-xl flex items-center justify-center font-bold">📞</div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Via WhatsApp</p>
+                                <p class="text-lg font-bold text-slate-900">0173 6066905</p>
+                            </div>
+                        </a>
+                        <a href="mailto:mva.autopflege@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-white hover:bg-slate-100 transition-colors border border-slate-200 shadow-sm">
+                            <div class="w-12 h-12 bg-mva-DEFAULT text-white rounded-xl flex items-center justify-center font-bold">✉️</div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">E-Mail für Firmenkunden</p>
+                                <p class="text-base sm:text-lg font-bold text-slate-900 break-all">mva.autopflege@gmail.com</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 shadow-sm p-6 rounded-2xl">
+                        <h4 class="font-bold text-slate-900 mb-2">📍 Einsatzgebiet</h4>
+                        <p class="text-sm text-slate-600">Grünwald und Umgebung bzw. München</p>
+                    </div>
+                </div>
+
+                <!-- Formular -->
+                <div class="bg-white border border-slate-200/90 p-6 sm:p-8 rounded-3xl shadow-md">
+                    <form action="https://api.web3forms.com/submit" method="POST" id="firmen-form" class="space-y-5">
+                        <input type="hidden" name="access_key" value="d49718bb-7480-4079-bdd2-2fe2d0c49fef">
+                        <input type="hidden" name="subject" value="Neue Firmenkunden-Anfrage über MVA Website">
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Firmenname *</label>
+                            <input type="text" name="firma" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-mva-DEFAULT transition-colors placeholder-slate-400" placeholder="z.B. Musterbau GmbH">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Ansprechpartner *</label>
+                                <input type="text" name="name" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-mva-DEFAULT transition-colors placeholder-slate-400" placeholder="Max Mustermann">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Telefon *</label>
+                                <input type="text" name="telefon" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-mva-DEFAULT transition-colors placeholder-slate-400" placeholder="0173 1234567">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">E-Mail Adresse *</label>
+                            <input type="email" name="email" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-mva-DEFAULT transition-colors placeholder-slate-400" placeholder="info@firma.de">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Flottengröße</label>
+                                <select name="flottengroesse" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-mva-DEFAULT transition-colors cursor-pointer">
+                                    <option value="2-5 Fahrzeuge">2 – 5 Fahrzeuge</option>
+                                    <option value="6-15 Fahrzeuge">6 – 15 Fahrzeuge</option>
+                                    <option value="16+ Fahrzeuge">über 16 Fahrzeuge</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Wunsch-Intervall</label>
+                                <select name="intervall" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-mva-DEFAULT transition-colors cursor-pointer">
+                                    <option value="Einmalig">Einmalige Aufbereitung</option>
+                                    <option value="Monatlich">Monatliche Pflege</option>
+                                    <option value="Alle 3 Monate">Alle 3 Monate</option>
+                                    <option value="Alle 6 Monate">Alle 6 Monate</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Nachricht / Standort / Anmerkungen</label>
+                            <textarea name="nachricht" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-mva-DEFAULT transition-colors placeholder-slate-400 resize-none" placeholder="Teilen Sie uns gerne Fahrzeugmodelle oder spezifische Wünsche mit..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-mva-DEFAULT hover:bg-mva-dark text-black font-bold text-base rounded-xl transition-all shadow-md hover:shadow-lg mt-2 cursor-pointer">
+                            Firmen-Angebot anfordern
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-black text-white tracking-tight">MVA AUTOPFLEGE BUSINESS</h3>
+                    <p class="text-slate-400 text-sm mt-1">Mobile Fuhrparkpflege für Grünwald, München & Bayern.</p>
+                    <p class="text-slate-400 text-sm mt-2">
+                        WhatsApp-Kontakt: 
+                        <a href="https://wa.me/491736066905" target="_blank" class="text-white hover:text-mva-light transition-colors font-semibold">0173 6066905</a>
+                    </p>
+                </div>
+                <div class="flex gap-6 text-sm text-slate-400">
+                    <a href="index.html" class="hover:text-white transition-colors">Für Privatkunden</a>
+                    <a href="impressum.html" class="hover:text-white transition-colors">Impressum</a>
+                    <a href="datenschutz.html" class="hover:text-white transition-colors">Datenschutz</a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-slate-600 text-xs">
+                &copy; 2026 MVA Autopflege. Alle Rechte vorbehalten.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript für Interaktivität -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smarte Navbar Navigation Hide/Show
+            const navbar = document.getElementById('navbar');
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+                if (!navbar) return;
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+                    navbar.classList.add('-translate-y-full');
+                } else {
+                    navbar.classList.remove('-translate-y-full');
+                }
+                lastScrollY = currentScrollY;
+            });
+
+            // Mobile Menü Steuerung
+            const mobileBtn = document.getElementById('mobile-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconPath = document.getElementById('mobile-icon-path');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                if (!mobileMenu || !iconPath) return;
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('menu-closed');
+                    mobileMenu.classList.add('menu-open');
+                    iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                } else {
+                    mobileMenu.classList.add('menu-closed');
+                    mobileMenu.classList.remove('menu-open');
+                    iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                }
+            }
+
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', toggleMenu);
+            }
+            
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isMenuOpen) toggleMenu();
+                });
+            });
+
+            // Formular Ladezustand
+            const form = document.getElementById('firmen-form');
+            if (form) {
+                form.addEventListener('submit', function() {
+                    const btn = form.querySelector('button[type="submit"]');
+                    if (btn) {
+                        btn.innerHTML = 'Anfrage wird gesendet...';
+                        btn.classList.add('opacity-75');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

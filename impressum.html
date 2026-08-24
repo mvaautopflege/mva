@@ -4,110 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impressum | MVA Autopflege</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .legal-page {
-            max-width: 800px;
-            margin: 120px auto 60px auto;
-            padding: 40px;
-            background-color: var(--bg-dark-card, #1E293B);
-            border-radius: var(--radius-md, 12px);
-            color: var(--text-dark, #F8FAFC);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            border: 1px solid var(--border-dark, rgba(255,255,255,0.1));
+    <meta name="description" content="Impressum von MVA Autopflege – mobile Innenraumaufbereitung in Grünwald und München.">
+    <link rel="icon" href="mvalogo.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="mvalogo.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        mva: {
+                            light: '#6c99bb',
+                            DEFAULT: '#4A7694',
+                            dark: '#2A485E',
+                            darkest: '#0B1120',
+                            card: '#1E293B'
+                        }
+                    }
+                }
+            }
         }
-        .legal-page h1 {
-            font-size: 2.2rem;
-            color: #FFFFFF;
-            margin-bottom: 25px;
-            border-bottom: 2px solid var(--primary, #4A7694);
-            padding-bottom: 10px;
-        }
-        .legal-page h2 {
-            font-size: 1.4rem;
-            color: var(--primary-light, #6c99bb);
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-        .legal-page p {
-            line-height: 1.7;
-            color: var(--text-dark-muted, #94A3B8);
-            margin-bottom: 15px;
-        }
-        .legal-page a {
-            color: var(--primary-light, #6c99bb);
-            text-decoration: underline;
-        }
-        .legal-page a:hover {
-            color: #FFFFFF;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: var(--primary-light, #6c99bb);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-    </style>
+    </script>
 </head>
-<body>
+<body class="antialiased bg-slate-50 text-slate-900">
 
-    <header id="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo-brand">
-                <img src="mva.jpeg" alt="MVA Autopflege Logo" class="logo-img">
-                <span class="logo-text">MVA AUTOPFLEGE</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#preise">Preise</a></li>
-                    <li><a href="index.html#kontakt">Kontakt</a></li>
-                </ul>
-            </nav>
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="mva.jpeg" alt="MVA Autopflege Logo" class="h-12 w-12 rounded-full object-cover shadow-sm border border-slate-200 group-hover:scale-105 transition-transform">
+                    <span class="text-xl font-black tracking-tight text-slate-900">MVA AUTOPFLEGE</span>
+                </a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#home" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Home</a>
+                    <a href="index.html#galerie" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Vorher / Nachher</a>
+                    <a href="index.html#preise" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">Preise</a>
+                    <a href="index.html#faq" class="text-sm font-semibold text-slate-600 hover:text-mva-DEFAULT transition-colors">FAQ</a>
+                    <a href="index.html#kontakt" class="text-sm font-semibold text-mva-DEFAULT hover:text-mva-dark transition-colors">Kontakt</a>
+                    <a href="firmenkunden.html" class="px-5 py-2.5 rounded-full bg-mva-DEFAULT text-black font-bold text-xs uppercase tracking-wider hover:bg-mva-dark transition-all shadow-sm">Für Unternehmen</a>
+                </nav>
+                <a href="index.html#kontakt" class="md:hidden px-4 py-2 rounded-full bg-mva-DEFAULT text-black font-bold text-xs shadow-sm">Kontakt</a>
+            </div>
         </div>
     </header>
 
-    <div class="container">
-        <div class="legal-page">
-            <a href="index.html" class="back-link">&larr; Zurück zur Startseite</a>
-            <h1>Impressum</h1>
+    <main class="pt-28 pb-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <a href="index.html" class="inline-flex items-center gap-2 text-mva-DEFAULT font-bold text-sm hover:text-mva-dark transition-colors mb-8">
+                <span>←</span> Zurück zur Startseite
+            </a>
 
-            <h2>Angaben gemäß § 5 TMG</h2>
-            <p>
-                <strong>MVA Autopflege</strong><br>
-                Maximilian Meißner<br>
-                82031 Grünwald
-            </p>
+            <article class="bg-white border border-slate-200 rounded-3xl shadow-sm p-6 sm:p-10 md:p-12">
+                <div class="mb-10">
+                    <p class="text-mva-DEFAULT font-bold uppercase tracking-widest text-xs mb-2">Rechtliche Informationen</p>
+                    <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Impressum</h1>
+                    <div class="h-1 w-16 bg-mva-DEFAULT rounded-full mt-5"></div>
+                </div>
 
-            <h2>Kontakt</h2>
-            <p>
-                Telefon: +491736066905<br>
-                E-Mail: mva_autopflege@gmail.com / max.700506@gmail.com
-            </p>
+                <div class="space-y-10 text-slate-600 leading-relaxed">
+                    <section>
+                        <h2 class="text-xl font-black text-slate-900 mb-4">Angaben gemäß § 5 DDG</h2>
+                        <p>
+                            <strong class="text-slate-900">MVA Autopflege</strong><br>
+                            Maximilian Meißner<br>
+                            82031 Grünwald<br>
+                            Deutschland
+                        </p>
+                    </section>
 
-            <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-            <p>
-                Maximilian Meißner<br>
-                82031 Grünwald
-            </p>
+                    <section>
+                        <h2 class="text-xl font-black text-slate-900 mb-4">Kontakt</h2>
+                        <p>
+                            <strong class="text-slate-900">Telefon:</strong>
+                            <a href="tel:+491736066905" class="text-mva-DEFAULT hover:text-mva-dark underline">0173 6066905</a><br>
+                            <strong class="text-slate-900">E-Mail:</strong>
+                            <a href="mailto:mva.autopflege@gmail.com" class="text-mva-DEFAULT hover:text-mva-dark underline">mva.autopflege@gmail.com</a>
+                        </p>
+                    </section>
 
-            <h2>Hinweis zur EU-Streitschlichtung</h2>
-            <p>
-                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
-                <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">http://ec.europa.eu/consumers/odr/</a>.<br>
-                Unsere E-Mail-Adresse finden Sie oben im Impressum.
-            </p>
+                    <section>
+                        <h2 class="text-xl font-black text-slate-900 mb-4">Vertretungsberechtigte / Verantwortlicher</h2>
+                        <p>
+                            Maximilian Meißner<br>
+                            82031 Grünwald
+                        </p>
+                    </section>
 
-            <h2>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
-            <p>
-                Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-            </p>
+                    <section>
+                        <h2 class="text-xl font-black text-slate-900 mb-4">Umsatzsteuer</h2>
+                        <p>
+                            Sofern keine Umsatzsteuer-Identifikationsnummer nach § 27a UStG vorhanden ist, ist an dieser Stelle keine USt-IdNr. anzugeben.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-black text-slate-900 mb-4">Verbraucherstreitbeilegung</h2>
+                        <p>
+                            Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-black text-slate-900 mb-4">Haftung für Inhalte</h2>
+                        <p>
+                            Wir erstellen die Inhalte dieser Website mit größtmöglicher Sorgfalt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-black text-slate-900 mb-4">Haftung für Links</h2>
+                        <p>
+                            Diese Website enthält Links zu externen Websites Dritter. Auf deren Inhalte haben wir keinen Einfluss. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-black text-slate-900 mb-4">Urheberrecht</h2>
+                        <p>
+                            Die auf dieser Website erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung oder Verbreitung außerhalb der Grenzen des Urheberrechts bedarf der vorherigen Zustimmung des jeweiligen Rechteinhabers.
+                        </p>
+                    </section>
+                </div>
+            </article>
         </div>
-    </div>
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-black text-white tracking-tight">MVA AUTOPFLEGE</h3>
+                    <p class="text-slate-400 text-sm mt-1">Sauber. Sorgfältig. Zuverlässig.</p>
+                </div>
+                <div class="flex gap-6 text-sm text-slate-400">
+                    <a href="impressum.html" class="hover:text-white transition-colors">Impressum</a>
+                    <a href="datenschutz.html" class="hover:text-white transition-colors">Datenschutz</a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-slate-600 text-xs">&copy; 2026 MVA Autopflege. Alle Rechte vorbehalten.</div>
+        </div>
+    </footer>
 
 </body>
 </html>

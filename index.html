@@ -736,6 +736,90 @@
 
     <!-- JS Dateien -->
     <script src="script.js"></script>
-    <script src="https://widgets.sociablekit.com/google-reviews/widget.js" defer></script>
+    
+    <script>
+(function () {
+    const consent = localStorage.getItem('mva_cookie_consent');
+
+    function loadSociableKIT() {
+        if (document.getElementById('sociablekit-script')) return;
+
+        const script = document.createElement('script');
+        script.id = 'sociablekit-script';
+        script.src = 'https://widgets.sociablekit.com/google-reviews/widget.js';
+        script.defer = true;
+
+        document.body.appendChild(script);
+    }
+
+    // Wenn vorher bereits "Alle akzeptieren" gewählt wurde
+    if (consent === 'all') {
+        loadSociableKIT();
+    }
+
+    // Wenn der Besucher jetzt "Alle akzeptieren" klickt
+    window.addEventListener('mva-cookie-accepted', function () {
+        loadSociableKIT();
+    });
+})();
+</script>
+
+    <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-lg z-[9999] bg-white border border-slate-200 rounded-3xl shadow-2xl p-6 hidden">
+    <div class="flex items-start gap-4">
+        <div class="w-10 h-10 shrink-0 rounded-2xl bg-mva-DEFAULT/10 flex items-center justify-center text-mva-DEFAULT text-lg">
+            🍪
+        </div>
+        <div>
+            <h3 class="font-black text-slate-900 text-lg">Deine Privatsphäre</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mt-2">
+                Wir verwenden technisch notwendige Funktionen. Externe Inhalte wie Bewertungen
+                können erst nach deiner Zustimmung geladen werden.
+                <a href="datenschutz.html" class="text-mva-DEFAULT font-semibold hover:underline">Datenschutz</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-3 mt-5">
+        <button id="cookie-necessary"
+            class="flex-1 px-4 py-3 rounded-full border border-slate-300 text-slate-700 font-bold text-sm hover:bg-slate-50 transition">
+            Nur notwendige
+        </button>
+        <button id="cookie-accept"
+            class="flex-1 px-4 py-3 rounded-full bg-mva-DEFAULT text-black font-bold text-sm hover:bg-mva-dark transition">
+            Alle akzeptieren
+        </button>
+    </div>
+</div>
+
+<script>
+(function () {
+    const banner = document.getElementById('cookie-banner');
+    const consent = localStorage.getItem('mva_cookie_consent');
+
+    if (!consent) {
+        banner.classList.remove('hidden');
+    }
+
+    function saveConsent(value) {
+        localStorage.setItem('mva_cookie_consent', value);
+        banner.classList.add('hidden');
+
+        if (value === 'all') {
+            // Hier können später externe Dienste nachgeladen werden,
+            // die eine Einwilligung benötigen.
+            window.dispatchEvent(new Event('mva-cookie-accepted'));
+        }
+    }
+
+    document.getElementById('cookie-accept').addEventListener('click', function () {
+        saveConsent('all');
+    });
+
+    document.getElementById('cookie-necessary').addEventListener('click', function () {
+        saveConsent('necessary');
+    });
+})();
+</script>
+
 </body>
 </html>

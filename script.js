@@ -1,4 +1,21 @@
-// HIER DEINE CLOUDFLARE PUBLIC DEV URL EINTRAGEN!
+// Automatische Scroll-Wiederherstellung deaktivieren (Seite öffnet immer ganz oben)
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+function scrollToTop() {
+    window.scrollTo(0, 0);
+}
+
+// Sowohl beim Entladen als auch beim Laden die Seite nach oben zwingen
+window.addEventListener('beforeunload', scrollToTop);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scrollToTop);
+} else {
+    scrollToTop();
+}
+
+// CLOUDFLARE PUBLIC DEV URL
 const R2_BASE_URL = 'https://pub-029611783ed14ebc9650ed56c4ffe937.r2.dev/';
 
 // Galerie Daten
@@ -17,7 +34,12 @@ const galleryItems = [
     { src: R2_BASE_URL + 'vorhernacher12.jpeg', alt: 'Detail Ergebnis Vorher / Nachher' },
     { src: R2_BASE_URL + 'vorhernacher13.jpeg', alt: 'Detail Ergebnis Vorher / Nachher' },
     { src: R2_BASE_URL + 'vorhernacher14.jpeg', alt: 'Detail Ergebnis Vorher / Nachher' },
-    { src: R2_BASE_URL + 'vorhernacher15.jpeg', alt: 'Detail Ergebnis Vorher / Nachher' }
+    { src: R2_BASE_URL + 'vorhernacher15.jpeg', alt: 'Detail Ergebnis Vorher / Nachher' },
+    { src: R2_BASE_URL + 'vorhernacher16.jpeg', alt: 'Detail Ergebnis Vorher / Nachher' },
+    { src: R2_BASE_URL + 'vorhernacher17.jpeg', alt: 'Detail Ergebnis Vorher / Nachher' },
+    { src: R2_BASE_URL + 'vorhernacher18.jpeg', alt: 'Detail Ergebnis Vorher / Nachher' },
+    { src: R2_BASE_URL + 'vorhernacher19.jpeg', alt: 'Detail Ergebnis Vorher / Nachher' },
+    { src: R2_BASE_URL + 'vorhernacher20.jpeg', alt: 'Detail Ergebnis Vorher / Nachher' }
 ];
 
 let currentLightboxIndex = 0;
@@ -29,14 +51,10 @@ function renderGallery() {
     const btnContainer = document.getElementById('gallery-btn-container');
     if (!grid) return;
 
-    // Limit basierend auf der Bildschirmbreite: Mobile (<640px) = 5 Bilder, PC = 12 Bilder
     const isMobile = window.innerWidth < 640;
-    const limit = isMobile ? 5 : 12;
-    
-    // Berechne, wie viele Bilder gezeigt werden sollen
+    const limit = isMobile ? 5 : 9;
     const itemsToShow = galleryExpanded ? galleryItems.length : Math.min(limit, galleryItems.length);
 
-    // Schneide das Array (galleryItems) für die Vorschau auf 'itemsToShow' ab
     grid.innerHTML = galleryItems.slice(0, itemsToShow).map((item, index) => `
         <div onclick="openLightbox(${index})" class="overflow-hidden rounded-2xl group relative aspect-square shadow-sm border border-slate-200 cursor-pointer bg-slate-200">
             <img src="${item.src}" alt="${item.alt}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x600/2A485E/FFFFFF?text=Vorher+Nachher+${index + 1}'">
@@ -46,7 +64,6 @@ function renderGallery() {
         </div>
     `).join('');
 
-    // Button ein- oder ausblenden
     if (btnContainer) {
         if (!galleryExpanded && galleryItems.length > limit) {
             btnContainer.classList.remove('hidden');
@@ -56,13 +73,11 @@ function renderGallery() {
     }
 }
 
-// Funktion für den Klick auf "Alle ansehen"
 function expandGallery() {
     galleryExpanded = true;
     renderGallery();
 }
 
-// Galerie neu berechnen bei Bildschirmgrößenänderung
 window.addEventListener('resize', () => {
     if (!galleryExpanded) {
         renderGallery();
@@ -124,7 +139,6 @@ document.addEventListener('keydown', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Galerie beim Laden dynamisch aufbauen
     renderGallery();
 
     // Smarte Navbar
@@ -197,7 +211,7 @@ function openServiceModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Verhindert scrollen im Hintergrund
+        document.body.style.overflow = 'hidden';
     }
 }
 
@@ -205,6 +219,6 @@ function closeServiceModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.add('hidden');
-        document.body.style.overflow = 'auto'; // Erlaubt scrollen wieder
+        document.body.style.overflow = 'auto';
     }
 }

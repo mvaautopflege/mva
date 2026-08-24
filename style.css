@@ -1,4 +1,8 @@
-body { background-color: #f8fafc; color: #0f172a; overflow-x: hidden; }
+body { 
+    background-color: #f8fafc; 
+    color: #0f172a; 
+    overflow-x: hidden; 
+}
 
 /* Glassmorphismus für die Navigation */
 .glass-nav {
@@ -6,6 +10,37 @@ body { background-color: #f8fafc; color: #0f172a; overflow-x: hidden; }
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Apple Liquid Glass Schließen-Button (Hell/Modal) */
+.liquid-glass-btn {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.liquid-glass-btn:hover {
+    background: rgba(255, 255, 255, 0.85);
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Apple Liquid Glass Button (Dunkel/Lightbox) */
+.liquid-glass-btn-dark {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.liquid-glass-btn-dark:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.08);
 }
 
 /* Verstecken der Scrollbar aber funktional lassen */

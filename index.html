@@ -176,7 +176,26 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="text-mva-DEFAULT font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">Bewertungen</h3>
             <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-8">Das sagen unsere Kunden</h2>
-            <div class="sk-ww-google-reviews" data-embed-id="25707400"></div>
+           <div id="bewertungen-container">
+    <div id="bewertungen-blockiert"
+         class="bg-slate-50 border border-slate-200 rounded-3xl p-8 text-center">
+
+
+        <h3 class="text-xl font-black text-slate-900">
+            Bewertungen konnten nicht geladen werden
+        </h3>
+
+        <p class="text-sm text-slate-500 mt-2 max-w-md mx-auto">
+            Die Anzeige unserer Google-Bewertungen wurde aufgrund deiner
+            Cookie-Einstellungen blockiert.
+        </p>
+
+        <button onclick="acceptReviews()"
+                class="mt-5 px-6 py-3 rounded-full bg-mva-DEFAULT text-black font-bold text-sm hover:bg-mva-dark transition">
+            Bewertungen anzeigen
+        </button>
+    </div>
+</div>
         </div>
     </section>
 
@@ -736,7 +755,7 @@
 
     <!-- JS Dateien -->
     <script src="script.js"></script>
-    
+
     <script>
 (function () {
     const consent = localStorage.getItem('mva_cookie_consent');
@@ -820,6 +839,40 @@
     });
 })();
 </script>
+<script>
+function loadSociableKIT() {
+    if (document.getElementById('sociablekit-script')) return;
 
+    const container = document.getElementById('bewertungen-container');
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="sk-ww-google-reviews"
+             data-embed-id="25707400" </div>
+    `;
+
+    const script = document.createElement('script');
+    script.id = 'sociablekit-script';
+    script.src = 'https://widgets.sociablekit.com/google-reviews/widget.js';
+    script.defer = true;
+
+    document.body.appendChild(script);
+}
+
+function acceptReviews() {
+    localStorage.setItem('mva_cookie_consent', 'all');
+
+    const banner = document.getElementById('cookie-banner');
+    if (banner) banner.classList.add('hidden');
+
+    loadSociableKIT();
+}
+
+if (localStorage.getItem('mva_cookie_consent') === 'all') {
+    document.addEventListener('DOMContentLoaded', loadSociableKIT);
+}
+
+window.addEventListener('mva-cookie-accepted', loadSociableKIT);
+</script>
 </body>
 </html>

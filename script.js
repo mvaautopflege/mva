@@ -191,3 +191,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Funktionen für die Spezialleistungen-Modals
+function openServiceModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Verhindert scrollen im Hintergrund
+    }
+}
+
+function closeServiceModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto'; // Erlaubt scrollen wieder
+    }
+}

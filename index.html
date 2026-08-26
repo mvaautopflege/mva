@@ -756,32 +756,7 @@
     <!-- JS Dateien -->
     <script src="script.js"></script>
 
-    <script>
-(function () {
-    const consent = localStorage.getItem('mva_cookie_consent');
-
-    function loadSociableKIT() {
-        if (document.getElementById('sociablekit-script')) return;
-
-        const script = document.createElement('script');
-        script.id = 'sociablekit-script';
-        script.src = 'https://widgets.sociablekit.com/google-reviews/widget.js';
-        script.defer = true;
-
-        document.body.appendChild(script);
-    }
-
-    // Wenn vorher bereits "Alle akzeptieren" gewählt wurde
-    if (consent === 'all') {
-        loadSociableKIT();
-    }
-
-    // Wenn der Besucher jetzt "Alle akzeptieren" klickt
-    window.addEventListener('mva-cookie-accepted', function () {
-        loadSociableKIT();
-    });
-})();
-</script>
+    
 
     <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-lg z-[9999] bg-white border border-slate-200 rounded-3xl shadow-2xl p-6 hidden">
     <div class="flex items-start gap-4">
@@ -839,18 +814,24 @@
     });
 })();
 </script>
-<script>
-function loadSociableKIT() {
-    if (document.getElementById('sociablekit-script')) return;
 
+<script>
+
+function loadSociableKIT() {
     const container = document.getElementById('bewertungen-container');
     if (!container) return;
 
+    // 1. ZUERST den Platzhalter durch das korrekte Widget-Div ersetzen (Syntax-Fehler behoben)
     container.innerHTML = `
-        <div class="sk-ww-google-reviews"
-             data-embed-id="25707400" </div>
+        <div class="sk-ww-google-reviews" data-embed-id="25707400"></div>
     `;
 
+    // 2. Prüfen, ob das Skript schon geladen wurde, um doppeltes Laden zu vermeiden
+    if (document.getElementById('sociablekit-script')) {
+        return; 
+    }
+
+    // 3. DANN das externe Skript laden
     const script = document.createElement('script');
     script.id = 'sociablekit-script';
     script.src = 'https://widgets.sociablekit.com/google-reviews/widget.js';
@@ -859,20 +840,29 @@ function loadSociableKIT() {
     document.body.appendChild(script);
 }
 
+// Funktion für den Button "Bewertungen anzeigen" im Platzhalter
 function acceptReviews() {
+    // 1. Consent im LocalStorage speichern
     localStorage.setItem('mva_cookie_consent', 'all');
 
+    // 2. Cookie-Banner ausblenden, falls es noch offen ist
     const banner = document.getElementById('cookie-banner');
     if (banner) banner.classList.add('hidden');
 
+    // 3. Bewertungen laden
     loadSociableKIT();
 }
 
-if (localStorage.getItem('mva_cookie_consent') === 'all') {
-    document.addEventListener('DOMContentLoaded', loadSociableKIT);
-}
+// Wenn die Seite lädt: Prüfen ob Consent schon da ist
+document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('mva_cookie_consent') === 'all') {
+        loadSociableKIT();
+    }
+});
 
+// Event-Listener für den "Alle akzeptieren" Button im Haupt-Banner
 window.addEventListener('mva-cookie-accepted', loadSociableKIT);
 </script>
+
 </body>
 </html>
